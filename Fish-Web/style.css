@@ -1,9 +1,12 @@
-
+body{
+    background-color: white;
+    flex-direction: column;
+}
 *{
     box-sizing: border-box;
 }
 .header{
-    background-color: black;
+    background-color: white;
     border-bottom: 3px solid green ;
 }
 .header .container{
@@ -14,6 +17,7 @@
 }
 .titulo{
     color: green;
+    font-size: xx-large;
 }
 .navbar{
     display: flex;
@@ -23,10 +27,10 @@
     color: green;
 }
 .navbar a {
-        color: green;
-        outline:none ;
-        text-decoration:none ;
-
+    color: green;
+    outline:none ;
+    text-decoration:none ;
+    font-size: larger;
 }
 .agora {
     font-weight: bolder;
@@ -37,12 +41,14 @@
     align-items: center;
     margin: 0;
     font-family: sans-serif;
-   
+    
     
 }
 .banner{
     display: flex;
     height: 600px;
+    background-size: cover;
+    object-fit: cover;
     width: 100%;
     justify-content: center;
     
@@ -53,6 +59,7 @@
     justify-content: center;
     align-items: center;
     background-position: center;
+    
 }
 .texto{
     width: 100%;
@@ -63,11 +70,12 @@
     position: absolute;
     justify-content: space-around;
     text-shadow:0.0px,0.5px,0.0px,0.5px white;
+    
 }
 .texto p{
     width: 300px;
     color: white;
-    font-family:'Times New Roman', Times, serif;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
     margin: 0;
     font-size: 34px;
 }
@@ -75,22 +83,48 @@
     font-weight: bolder;
 }
 .info{
-height: 400px;
     width: 100%;
-    background-color: black;
+    background-color: white;
     font-family: 'Times New Roman', Times, serif;
     color: green;
     align-items: center;
     display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+    flex-direction: row;
+    justify-items: space-between;
 }
 .titulo2{
-     font-size: 34px;
+    font-size: 50px;
+    justify-items: space-between;
+    display: flex;
+     font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif
+  
+}
+.imagem{
+    display: flex;
+    object-fit: cover;
+    width: 50%;
+    height: 500px;
+    
+}
+.imagem img{
+    justify-content: space-around;
+    width: 700px;
+    height: 100%;
+    border-radius: 19px;
 }
 .resposta{
-    font-size: 18px;
+    display: flex;
     justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+}
+.resposta2{
+    display: flex;
+    justify-content: space-between;
+    width: 70%;
+    height: 100%;
+    font-size: 26px;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
 }
 .social{
     height: 400px;
@@ -98,6 +132,7 @@ height: 400px;
     background-color: black;
     font-family: 'Times New Roman', Times, serif;
     color: white;
+    display: flex;
 }
 .social .container{
     height: 100%;
@@ -106,13 +141,14 @@ height: 400px;
     justify-content: center;
     align-items: center;
     margin: 0;
+    display: flex;
 }
 .boxes {
     width: 80%;
     display: flex;
     justify-content: space-evenly;
     align-items: center;
-   
+    align-items: row;
 }
 .box{
     width: 250px;
@@ -123,14 +159,18 @@ height: 400px;
     text-align: center;
 }
 .box img{
- width: 160px;
- height: 160px;
-  border-radius: 10px;
+    width: 200px;
+    height: 200px;
+    border-radius: 10px;
 }
 .box h4{
     margin: 0;
     margin-top: 10px;
     color: #5ccb5f;
+}
+.box p{
+    display: flex;
+    font-size: large;
 }
 .footer{
     height: 120px;
@@ -141,12 +181,34 @@ height: 400px;
     height: 100%;
     width: 100%;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
     color: white;
+    justify-content: center;
 }
 .footer h4 {
     margin-bottom: 0;
+    font-size: larger;
 }
-
-
+.container img{
+    border-radius: 15px;
+}
+.login{
+    height: 800px;
+    width: 100%;
+    background:url(./imgs/bonito-turismo.webp);
+    background-size: cover;
+}
+.login .container{
+    height: 50%;
+    width: 50%;
+    display: flex;
+    justify-content: center;
+     color: green;
+    background-color: white;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 18px;
+    justify-self: center;
+    
+}
