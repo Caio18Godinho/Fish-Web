@@ -64,7 +64,6 @@ body{
     justify-content: center;
     align-items: center;
     background-position: center;
-    
 }
 .texto{
     width: 100%;
@@ -104,14 +103,20 @@ body{
      font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif
   
 }
-.imagem{
+.imagem2{
     display: flex;
     object-fit: cover;
     width: 50%;
     height: 500px;
-    
+   margin-left: 50px;
 }
 .imagem img{
+    justify-content: space-around;
+    width: 700px;
+    height: 100%;
+    border-radius: 19px;
+}
+.imagem2 img{
     justify-content: space-around;
     width: 700px;
     height: 100%;
@@ -138,6 +143,12 @@ body{
     font-family: 'Times New Roman', Times, serif;
     color: white;
     display: flex;
+}
+.container h4{
+    display: flex;
+    font-size: xx-large;
+    color: #5ccb5f;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif ;
 }
 .social .container{
     height: 100%;
@@ -172,10 +183,12 @@ body{
     margin: 0;
     margin-top: 10px;
     color: #5ccb5f;
+    font-size: medium;
 }
 .box p{
     display: flex;
     font-size: large;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif ;
 }
 .footer{
     height: 120px;
