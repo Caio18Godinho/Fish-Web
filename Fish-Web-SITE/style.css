@@ -209,8 +209,8 @@ body{
 }
 .login .container{
     
-    height: 50%;
-    width: 50%;
+    height: 57%;
+    width: 60%;
     display: flex;
     justify-content: center;
     color: green;
@@ -218,8 +218,9 @@ body{
     align-items: center;
     flex-direction: row;
     border-radius: 18px;
-    margin-top: -50px;
+    margin-top: -100px;
     justify-content: space-between;
+    
     
 }
 .container .texto2{
@@ -233,6 +234,8 @@ body{
     border-radius: 18px;
     font-size: large;
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif ;
+    margin-right: 40px;
+    margin-top: -55px;
 }
 .container .imagem{
     height: 100%;
@@ -240,6 +243,7 @@ body{
     display: flex;
     align-items: start;
 }
+
 .texto2 p{
     color: #0E2E00;
     display: flex;
@@ -259,6 +263,78 @@ body{
     margin-top: 15px;
     color: white;
     background-color: #0E2E00;
-    height: 45px;
+    height: 60px;
+    width: 200px;
+    margin-top: 40px;
+    font-size: x-large;
+}
+.login2{
+    display: flex;
+    height: 800px;
+    width: 100%;
+    background:url(./imgs/foto-2-1600x900.webp);
+    background-size: cover;
+    justify-content: center;
+    align-items: center;
+}
+.login2 .container2{
+    
+    height: 60%;
+    width: 60%;
+    display: flex;
+    justify-content: center;
+    color: green;
+    background-color: white;
+    align-items: center;
+    flex-direction: row;
+    border-radius: 18px;
+    margin-top: -50px;
+    justify-content: space-between;
+    
+}
+.container2 .imagem{
+    height: 100%;
+    width: 50%;
+    display: flex;
+    align-items: start;
+}
+
+.container2 .texto3{
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: end;
+    color: #0E2E00;
+    text-align: center;
+    flex-direction: column;
+    border-radius: 18px;
+    font-size:medium;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif ;
+    margin-right: 50px;
+    margin-top: -20px;
+}
+.texto3 p{
+    color: #0E2E00;
+    display: flex;
+    font-size: large;
+    
+}
+.texto3 input{
+    height: 30px;
+    width:280px;
+    border-radius: 10px;
+    border: solid;
+    border-color: #0E2E00;
+}
+.texto3 button{
+    border-radius: 10px;
+    border: solid;
+    border-color: #0E2E00;
+    margin-top: 15px;
+    color: white;
+    background-color: #0E2E00;
+    height: 32px;
     width: 100px;
+    margin-top: 15px;
+    font-size: large;
 }
