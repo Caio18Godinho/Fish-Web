@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FishWeb | Login</title>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+    <div class="header">
+        <div class="container">
+            <h1 class="titulo">Fish<span style="font-weight: normal;">Web</span></h1>
+            <ul class="navbar">
+                <li class="agora">
+                    <a href="./index.html"style="font-weight: normal;">Inicial</a>
+                </li>
+                <li>
+                    <a href="Login.html" style="font-weight: bold;">Login</a>
+                </li>
+                <li>
+                    <a href="Cadastro.html">Cadastro</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="login">
+        <div class="container">
+            <div class="imagem">
+                <img src="./imgs/20251011_110849000_iOS.jpg">
+            </div>
+            <div class="texto2">
+                <div>
+                <h1>Entre na sua conta!</h1>
+                <p>Email:</p><input id="email_input">
+                <p>Senha:</p><input id="senha_input"><br>
+                <button onclick="entrar()">Entrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <div class="container">
+            <div class="foto"><img src="./imgs/f1.jpg"></div>
+            <div>
+                <h4>Meus contatos:</h4><a href="https://github.com/Caio18Godinho/Fish-Web.git">GitHub </a>
+                <a href="">linkedin</a>
+            </div><br>
+        </div>
+    </div>
+</body>
+
+</html>
+
+<script>
+
+
+    function entrar() {
+
+        var emailVar = email_input.value;
+        var senhaVar = senha_input.value;
+
+        if (emailVar == "" || senhaVar == "") {
+            mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
+        }
+        console.log("FORM LOGIN: ", emailVar);
+        console.log("FORM SENHA: ", senhaVar);
+
+        fetch("/usuarios/autenticar", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                emailServer: emailVar,
+                senhaServer: senhaVar
+            })
+        }).then(function (resposta) {
+            console.log("ESTOU NO THEN DO entrar()!")
+
+            if (resposta.ok) {
+                console.log(resposta);
+
+                resposta.json().then(json => {
+                    console.log(json);
+                    console.log(JSON.stringify(json));
+                    sessionStorage.EMAIL_USUARIO = json.email;
+                    sessionStorage.NOME_USUARIO = json.nome;
+                    sessionStorage.ID_USUARIO = json.id;
+
+                    setTimeout(function () {
+                        window.location = "index.html";
+                    }, 1000); // apenas para exibir o loading
+
+                });
+
+            } else {
+
+                console.log("Houve um erro ao tentar realizar o login!");
+
+                resposta.text().then(texto => {
+                    console.error(texto);
+                });
+            }
+
+        }).catch(function (erro) {
+            console.log(erro);
+        })
+
+        return false;
+    }
+</script>

@@ -215,7 +215,7 @@ body{
     display: flex;
     height: 800px;
     width: 100%;
-    background:url(./imgs/bonito-turismo.webp);
+    background:url(/web-data-viz/public/imgs/bonito-turismo.webp);
     background-size: cover;
     justify-content: center;
     align-items: center;
@@ -285,7 +285,7 @@ body{
     display: flex;
     height: 800px;
     width: 100%;
-    background:url(./imgs/foto-2-1600x900.webp);
+    background:url(/web-data-viz/public/imgs/foto-2-1600x900.webp);
     background-size: cover;
     justify-content: center;
     align-items: center;
