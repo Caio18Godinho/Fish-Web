@@ -211,11 +211,12 @@ body{
 .container img{
     border-radius: 15px;
 }
+
 .login{
     display: flex;
     height: 800px;
     width: 100%;
-    background:url(/web-data-viz/public/imgs/bonito-turismo.webp);
+    background:url(/public/imgs/bonito-turismo.webp);
     background-size: cover;
     justify-content: center;
     align-items: center;
@@ -281,11 +282,12 @@ body{
     margin-top: 40px;
     font-size: x-large;
 }
+
 .login2{
     display: flex;
     height: 800px;
     width: 100%;
-    background:url(/web-data-viz/public/imgs/foto-2-1600x900.webp);
+    background:url(/public/imgs/foto-2-1600x900.webp);
     background-size: cover;
     justify-content: center;
     align-items: center;
@@ -350,4 +352,68 @@ body{
     width: 100px;
     margin-top: 15px;
     font-size: large;
+}
+
+
+.social2{
+    height: 1000px;
+    width: 100%;
+    background-color: black;
+    font-family: 'Times New Roman', Times, serif;
+    color: white;
+    display: flex;
+    
+}
+.container2 h4{
+    display: flex;
+    font-size: xx-large;
+    color: #5ccb5f;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif ;
+}
+.social2 .container2{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    display: flex;
+    
+}
+.boxes2 {
+    width: 800px;
+    height: 600px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    align-items: row;
+    
+}
+.box2{
+    width: 280px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    justify-content: space-between;
+    
+}
+.box2 img{
+    width: 200px;
+    height: 200px;
+    border-radius: 10px;
+    display: flex;
+    
+}
+.box2 h4{
+    margin: 0;
+    margin-top: 10px;
+    color: #5ccb5f;
+    font-size: medium;
+}
+.box2 p{
+    display: flex;
+    font-size: large;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif ;
 }
