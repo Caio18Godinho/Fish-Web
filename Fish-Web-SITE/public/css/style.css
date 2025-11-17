@@ -216,7 +216,7 @@ body{
     display: flex;
     height: 800px;
     width: 100%;
-    background:url(/public/imgs/bonito-turismo.webp);
+    background-image: url('../imgs/bonito-turismo.webp');
     background-size: cover;
     justify-content: center;
     align-items: center;
@@ -287,7 +287,7 @@ body{
     display: flex;
     height: 800px;
     width: 100%;
-    background:url(/public/imgs/foto-2-1600x900.webp);
+    background-image: url('../imgs/foto-2-1600x900.webp');
     background-size: cover;
     justify-content: center;
     align-items: center;
@@ -356,7 +356,7 @@ body{
 
 
 .social2{
-    height: 1000px;
+    height: 5000px;
     width: 100%;
     background-color: black;
     font-family: 'Times New Roman', Times, serif;
@@ -365,36 +365,40 @@ body{
     
 }
 .container2 h4{
+    height: 100%;
     display: flex;
     font-size: xx-large;
     color: #5ccb5f;
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif ;
+    justify-content: flex-start;
 }
 .social2 .container2{
     height: 100%;
     width: 100%;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content: flex-start;
+    align-items: flex-start;
     margin: 0;
     display: flex;
-    
+    flex-direction: column;
 }
 .boxes2 {
-    width: 800px;
-    height: 600px;
+    width: 100%;
+    height: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
     align-items: row;
-    
+    flex-wrap: wrap;
+    flex-direction: column;
 }
 .box2{
+    height: 400px;
     width: 280px;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: center;
-    align-items: center;
+    align-items:flex-start ;
     text-align: center;
     justify-content: space-between;
     
@@ -411,9 +415,11 @@ body{
     margin-top: 10px;
     color: #5ccb5f;
     font-size: medium;
+    flex-direction: row;
 }
 .box2 p{
     display: flex;
     font-size: large;
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif ;
+    flex-direction: row;
 }
