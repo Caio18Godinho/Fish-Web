@@ -397,7 +397,7 @@ a{
 }
 .box2{
     height: 400px;
-    width: 100%;
+    width: 1100px;
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -421,11 +421,13 @@ a{
     flex-direction: row;
     margin-top: -20px;
     margin-right: -50px;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 .box2 p{
+    width: 100%;
     display: flex;
-    font-size: large;
-    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif ;
+    font-size: medium;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     flex-direction: row;
     align-items: flex-start;
 }
