@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FishWeb | Login</title>
     <link rel="stylesheet" href="./css/style.css">
+    <script src="./js/sessao.js"></script>
 </head>
 
 <body>
@@ -86,10 +87,10 @@
                     console.log(JSON.stringify(json));
                     sessionStorage.EMAIL_USUARIO = json.email;
                     sessionStorage.NOME_USUARIO = json.nome;
-                    sessionStorage.ID_USUARIO = json.id;
+                    sessionStorage.ID_USUARIO = json.idusuario;
 
                     setTimeout(function () {
-                        window.location = "index.html";
+                        window.location = "./dashboard/cards.html";
                     }, 1000); // apenas para exibir o loading
 
                 });

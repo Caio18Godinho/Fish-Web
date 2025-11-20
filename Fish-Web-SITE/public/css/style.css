@@ -284,6 +284,7 @@ a{
     width: 200px;
     margin-top: 40px;
     font-size: x-large;
+    cursor: pointer;
 }
 
 .login2{
