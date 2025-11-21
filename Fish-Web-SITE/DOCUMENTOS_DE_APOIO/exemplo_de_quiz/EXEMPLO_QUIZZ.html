@@ -50,14 +50,6 @@
                     <input type="radio" id="segundaOpcao" name="option" class="radio" value="alternativaB" />
                     <label for="segundaOpcao" class="option" id="labelOpcaoDois"></label>
                 </span>
-                <span>
-                    <input type="radio" id="terceiraOpcao" name="option" class="radio" value="alternativaC" />
-                    <label for="terceiraOpcao" class="option" id="labelOpcaoTres"></label>
-                </span>
-                <span>
-                    <input type="radio" id="quartaOpcao" name="option" class="radio" value="alternativaD" />
-                    <label for="quartaOpcao" class="option" id="labelOpcaoQuatro"></label>
-                </span>
             </div>
 
             <div id="botoes" class="flex-colunar padding-8">
@@ -76,32 +68,66 @@
     const listaDeQuestoes = [
 
         {
-            pergunta: "Qual mês tem 30 dias?",
-            alternativaA: "Janeiro",
-            alternativaB: "Dezembro",
-            alternativaC: "Junho",
-            alternativaD: "Agosto",
-            alternativaCorreta: "alternativaC"
+            pergunta: "Voce utiliza anzóiz com fisga?",
+            alternativaA: "Não",
+            alternativaB: "Sim",
+            alternativaCorreta: "alternativaA"
         },
 
         {
-            pergunta: "Quantas horas tem em um dia?",
-            alternativaA: "30 horas",
-            alternativaB: "38 horas",
-            alternativaC: "48 horas",
-            alternativaD: "24 horas",
-            alternativaCorreta: "alternativaD"
+            pergunta: "Voce utiliza linha multifilamento para pesca de fundo?",
+            alternativaA: "Sim",
+            alternativaB: "Não",
+            alternativaCorreta: "alternativaB"
         },
 
         {
-            pergunta: "Qual destes números é ímpar?",
-            alternativaA: "Dez",
-            alternativaB: "Doze",
-            alternativaC: "Oito",
-            alternativaD: "Onze",
-            alternativaCorreta: "alternativaD"
-        }
+            pergunta: "Na hora de segurar o peixe voce segura ele em posição de navegação?",
+            alternativaA: "Sim",
+            alternativaB: "Não",
+            alternativaCorreta: "alternativaA"
+        },
 
+        {
+            pergunta: "Na hora de iscar a isca voce utiliza palito de dente, graveto etc, para fixar a isca?",
+            alternativaA: "Sim",
+            alternativaB: "Não",
+            alternativaCorreta: "alternativaB"
+        },
+
+        {
+            pergunta: "Voce força a retirada do anzol da boca do peixe, atravez de puxões?",
+            alternativaA: "Sim",
+            alternativaB: "Não",
+            alternativaCorreta: "alternativaB"
+        },
+
+        {
+            pergunta: "Na manejo do peixe voce segura ele na vertical ou pela cauda?",
+            alternativaA: "Sim",
+            alternativaB: "Não",
+            alternativaCorreta: "alternativaB"
+        },
+
+        {
+            pergunta: "Para conseguir segurar o peixe, voce pisa nele?",
+            alternativaA: "Sim",
+            alternativaB: "Não",
+            alternativaCorreta: "alternativaB"
+        },
+
+        {
+            pergunta: "Voce utiliza passaguá para retirar o peixe da agua?",
+            alternativaA: "Sim",
+            alternativaB: "Não",
+            alternativaCorreta: "alternativaA"
+        },
+        {
+            pergunta: "No manejo do peixe voce segura ele pelas guelras ou operculos?",
+            alternativaA: "Sim",
+            alternativaB: "Não",
+            alternativaCorreta: "alternativaB"
+        },
     ]
 
     // variáveis globais    
@@ -143,8 +169,8 @@
         document.getElementById("spanQuestaoExibida").innerHTML = questaoAtual.pergunta;
         document.getElementById("labelOpcaoUm").innerHTML = questaoAtual.alternativaA;
         document.getElementById("labelOpcaoDois").innerHTML = questaoAtual.alternativaB;
-        document.getElementById("labelOpcaoTres").innerHTML = questaoAtual.alternativaC;
-        document.getElementById("labelOpcaoQuatro").innerHTML = questaoAtual.alternativaD;
+        //document.getElementById("labelOpcaoTres").innerHTML = questaoAtual.alternativaC;
+        //document.getElementById("labelOpcaoQuatro").innerHTML = questaoAtual.alternativaD;
     }
 
     function submeter() {
@@ -175,8 +201,8 @@
 
         primeiraOpcao.disabled = opcaoEscolhida
         segundaOpcao.disabled = opcaoEscolhida
-        terceiraOpcao.disabled = opcaoEscolhida
-        quartaOpcao.disabled = opcaoEscolhida
+        //terceiraOpcao.disabled = opcaoEscolhida
+        //quartaOpcao.disabled = opcaoEscolhida
 
     }
 
@@ -189,7 +215,7 @@
         if (numeroDaQuestaoAtual < quantidadeDeQuestoes - 1) {
             preencherHTMLcomQuestaoAtual(numeroDaQuestaoAtual)
         } else if (numeroDaQuestaoAtual == quantidadeDeQuestoes - 1) {
-            alert("Atenção... a próxima é a ultima questão!")
+            alert("Atenção... a proxima questão é a ultima para saber se voce é um verdadeiro pescador")
             preencherHTMLcomQuestaoAtual(numeroDaQuestaoAtual)
         } else {
             finalizarJogo()
@@ -259,19 +285,27 @@
         const porcentagemFinalDeAcertos = pontuacaoFinal / quantidadeDeQuestoes
 
         if (porcentagemFinalDeAcertos <= 0.3) {
-            textoParaMensagemFinal = "Parece que você não estudou..."
+            textoParaMensagemFinal = "Desse jeito vai acabar matando um peixe. Tem que mudar imediatamente"
             classComCoresParaMensagemFinal = "text-danger-with-bg"
         }
-        else if (porcentagemFinalDeAcertos > 0.3 && porcentagemFinalDeAcertos < 0.9) {
-            textoParaMensagemFinal = "Pode melhorar na próxima, hein!"
+        else if (porcentagemFinalDeAcertos > 0.3 && porcentagemFinalDeAcertos < 0.5) {
+            textoParaMensagemFinal = "Se aprofunde mais, e perca esse habitos ruins"
+            classComCoresParaMensagemFinal = "text-warning-with-bg"
+        }
+        else if (porcentagemFinalDeAcertos >= 0.5 && porcentagemFinalDeAcertos < 0.7) {
+            textoParaMensagemFinal = "Tem que melhorar, se não vai machucar o peixe"
+            classComCoresParaMensagemFinal = "text-warning-with-bg"
+        }
+        else if (porcentagemFinalDeAcertos >= 0.7 && porcentagemFinalDeAcertos < 0.9) {
+            textoParaMensagemFinal = "Dá para melhorar viu, tem que alcançar o 100%"
             classComCoresParaMensagemFinal = "text-warning-with-bg"
         }
         else if (porcentagemFinalDeAcertos >= 0.9) {
-            textoParaMensagemFinal = "Uau, parabéns!"
+            textoParaMensagemFinal = "Um verdadeiro pescador, continue assim!, parabens!"
             classComCoresParaMensagemFinal = "text-success-with-bg"
         }
 
-        textoParaMensagemFinal += "<br> Você acertou " + Math.round((porcentagemFinalDeAcertos)*100) + "% das questões."
+        textoParaMensagemFinal += "<br> Você tem " + Math.round((porcentagemFinalDeAcertos)*100) + "% de chance de não prejudicar o peixe."
 
 
         document.getElementById('msgFinal').innerHTML = textoParaMensagemFinal
