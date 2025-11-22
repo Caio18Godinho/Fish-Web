@@ -513,3 +513,78 @@ b{
     flex-direction: row;
     align-items: flex-start;
 }
+
+.social4{
+    height: 1750px;
+    width: 100%;
+    background-color: black;
+    font-family: 'Times New Roman', Times, serif;
+    color: white;
+    display: flex;
+    
+}
+.container4 h4{
+    height: 100%;
+    display: flex;
+    font-size: xx-large;
+    color: #5ccb5f;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif ;
+    justify-content: flex-start;
+}
+.social4 .container4{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}
+.boxes4 {
+    width: 1000px;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    align-items: row;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+.box4{
+    height: 400px;
+    width: 1100px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items:flex-start ;
+    align-items: row;
+    
+}
+.box4 img{
+    width: 300px;
+    height: 300px;
+    border-radius: 10px;
+    display: flex;
+    margin-right: 20px;
+    
+    
+}
+.box4 h4{
+    margin: 0;
+    margin-top: 10px;
+    color: #5ccb5f;
+    font-size: x-large;
+    flex-direction: row;
+    margin-top: -20px;
+    margin-right: -50px;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+.box4 p{
+    width: 100%;
+    display: flex;
+    font-size: medium;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    flex-direction: row;
+    align-items: flex-start;
+}
