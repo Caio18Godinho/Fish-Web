@@ -28,7 +28,8 @@
     </div>
     <div id="pontuacaoEJogo" class="pontuacaoEJogo">
         <div class="jogo">
-            <button id="btnIniciarQuiz" onclick="iniciarQuiz()" style="width: 200px; height: 100px; border-radius: 20px; border: solid;">INICIAR QUIZ</button>
+            <button id="btnIniciarQuiz" onclick="iniciarQuiz()"
+                style="width: 200px; height: 100px; border-radius: 20px; border: solid;">INICIAR QUIZ</button>
 
             <div id="pontuacao" class="flex-colunar width-fit-content border-primary back" style="display: none;">
                 <div id="pontuacaoDuranteJogo" class="flex-colunar padding-8">
@@ -74,6 +75,7 @@
                     <button onclick="avancar()" id="btnProx" disabled>Avançar para próxima questão</button>
                     <!-- <button onclick="finalizar()" id="btnConcluir" disabled>Finalizar Quiz</button> -->
                     <button onclick="tentarNovamente()" id="btnTentarNovamente" disabled>Tentar novamente</button>
+                    <button onclick="dash()" id="btndash">Veja seu resultado na DashBoard</button>
                 </div>
 
             </div>
@@ -157,13 +159,15 @@
         },
     ]
 
-    // variáveis globais    
-    let numeroDaQuestaoAtual = 0
-    let pontuacaoFinal = 0
-    let tentativaIncorreta = 0
-    let certas = 0
-    let erradas = 0
-    let quantidadeDeQuestoes = listaDeQuestoes.length
+    // variáveis globais   
+    var quantidadeDePartidas = 0
+    var numeroDaQuestaoAtual = 0
+    var pontuacaoFinal = 0
+    var tentativaIncorreta = 0
+    var certas = 0
+    var erradas = 0
+    var quantidadeDeQuestoes = Number(listaDeQuestoes.length)
+    var porcentagemFinalDeAcertos2 = 0
     // let isUltima = numeroDaQuestaoAtual == quantidadeDeQuestoes-1 ? true : false
 
     function onloadEsconder() {
@@ -172,6 +176,7 @@
     }
 
     function iniciarQuiz() {
+        quantidadeDePartidas++;
         document.getElementById('pontuacao').style.display = "flex"
         document.getElementById('jogo').style.display = "flex"
         document.getElementById('btnIniciarQuiz').style.display = "none"
@@ -184,6 +189,7 @@
         btnProx.disabled = true
         // btnConcluir.disabled = true
         btnTentarNovamente.disabled = true
+        btndash.disabled = true
     }
 
     function preencherHTMLcomQuestaoAtual(index) {
@@ -255,6 +261,42 @@
         window.location.reload()
     }
 
+    function cadastrarQuizz() {
+        // aguardar();
+
+        //Recupere o valor da nova input pelo nome do id
+        // Agora vá para o método fetch logo abaixo
+        
+        var idusuario = sessionStorage.ID_USUARIO;
+        var pctAcertos = Number(porcentagemFinalDeAcertos2);
+
+        // Enviando o valor da nova input
+        fetch("/quizz/cadastrarQuizz", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                // crie um atributo que recebe o valor recuperado aqui
+                // Agora vá para o arquivo routes/usuario.js
+                idusuarioServer: idusuario,
+                pctAcertosServer: pctAcertos,
+            }),
+        })
+            .then(function (resposta) {
+                console.log("resposta: ", resposta);
+
+            })
+            .catch(function (resposta) {
+                console.log(`#ERRO: ${resposta}`);
+            });
+
+    }
+    function dash() {
+        window.location.href = 'dashboard.html'
+    }
+
+
     function checarResposta() {
         const questaoAtual = listaDeQuestoes[numeroDaQuestaoAtual] // questão atual 
         const respostaQuestaoAtual = questaoAtual.alternativaCorreta // qual é a resposta correta da questão atual
@@ -309,7 +351,9 @@
     function finalizarJogo() {
         let textoParaMensagemFinal = null
         let classComCoresParaMensagemFinal = null
-        const porcentagemFinalDeAcertos = pontuacaoFinal / quantidadeDeQuestoes
+        var porcentagemFinalDeAcertos = (pontuacaoFinal / quantidadeDeQuestoes)
+         porcentagemFinalDeAcertos2 = ((pontuacaoFinal / quantidadeDeQuestoes) * 100)
+
 
         if (porcentagemFinalDeAcertos <= 0.3) {
             textoParaMensagemFinal = "Desse jeito vai acabar matando um peixe. Tem que mudar imediatamente"
@@ -345,6 +389,8 @@
         btnSubmeter.disabled = true
         // btnConcluir.disabled = true
         btnTentarNovamente.disabled = false
+        btndash.disabled = false
 
+        cadastrarQuizz()
     }
 </script>
