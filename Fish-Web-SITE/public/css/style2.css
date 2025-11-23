@@ -21,12 +21,17 @@
 body {
     color: var(--new-black);
     background-color: var(--new-white);
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 button {
     font-family: monospace;
     font-weight: bold;
+    cursor: pointer;
+}
+button:hover {
+    background-color: #0E2E00;
+    color: white;
+    transition: 0.2s;
 }
 
 .flex-colunar {
@@ -71,4 +76,23 @@ button {
 
 .text-new-gray {
     color: var(--new-gray);
+}
+.pontuacaoEJogo{
+    display: flex;
+    height: 600px;
+    
+    background-size: cover;
+}
+.jogo{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-image: url('../imgs/bonito-turismo.webp');
+        
+}
+.back{
+    background-color: white;
+
 }
