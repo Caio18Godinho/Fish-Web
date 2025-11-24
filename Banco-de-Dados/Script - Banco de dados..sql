@@ -9,9 +9,12 @@ senha varchar(45));
 
 create table questionario (
 idquestionario int primary key auto_increment,
-questionarios_feitos int,
-vida_peixe float,
+vida_peixe int,
 fkUsuario int, 
 constraint chkusuario 
 foreign key (fkUsuario) 
 references Usuario(idusuario));
+
+select * from Usuario;
+select * from Usuario join questionario on Usuario.idusuario = questionario.fkUsuario;
+select * from questionario;
