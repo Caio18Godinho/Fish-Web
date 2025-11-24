@@ -28,6 +28,7 @@
     </div>
     <div id="pontuacaoEJogo" class="pontuacaoEJogo">
         <div class="jogo">
+            <button onclick="dashboard()" id="btnVisualizar">VISUALIZAR DASHBOARD</button>
             <button id="btnIniciarQuiz" onclick="iniciarQuiz()"
                 style="width: 200px; height: 100px; border-radius: 20px; border: solid;">INICIAR QUIZ</button>
 
@@ -190,6 +191,7 @@
         // btnConcluir.disabled = true
         btnTentarNovamente.disabled = true
         btndash.disabled = true
+        btnVisualizar.disabled = true
     }
 
     function preencherHTMLcomQuestaoAtual(index) {
@@ -392,5 +394,8 @@
         btndash.disabled = false
 
         cadastrarQuizz()
+    }
+    function dashboard(){
+        window.location.href="dashboard.html"
     }
 </script>

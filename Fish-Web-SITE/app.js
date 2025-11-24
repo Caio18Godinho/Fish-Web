@@ -17,6 +17,7 @@ var app = express();
 var quizzRouter = require("./src/routes/quizz");
 var indexRouter = require("./src/routes/index");
 var usuarioRouter = require("./src/routes/usuarios");
+var dashRouter = require("./src/routes/dash");
 //var avisosRouter = require("./src/routes/avisos");
 //var medidasRouter = require("./src/routes/medidas");
 //var empresasRouter = require("./src/routes/empresas");
@@ -33,6 +34,7 @@ app.use("/usuarios", usuarioRouter);
 //app.use("/medidas", medidasRouter);
 //app.use("/empresas", empresasRouter);
 app.use("/quizz", quizzRouter);
+app.use("/dash", dashRouter);
 
 
 app.listen(PORTA_APP, function () {

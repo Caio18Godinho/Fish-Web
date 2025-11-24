@@ -2,50 +2,101 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FishWeb | Dashboard</title>
-    <link rel="stylesheet" href="./css/style.css">
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>FishWeb | Dashboard</title>
+   <link rel="stylesheet" href="./css/style.css">
+   <script src="./js/sessao.js"></script>
 </head>
 
 <body>
-    <div class="header">
-        <div class="container">
-            <h1 class="titulo">Fish<span style="font-weight: normal;">Web</span></h1>
-            <ul class="navbar">
-                <li class="agora">
-                    <a href="index.html">Inicial</a>
-                </li>
-                <li>
-                    <a href="login.html">Login</a>
-                </li>
-                <li>
-                    <a href="cadastro.html">Cadastro</a>
-                </li>
-            </ul>
-        </div>
-    </div>
-    <div class="dash-back">
-        <div class="dash-board">
-            <div class="kpis">
-                <div class="kpi">Ranking</div>
-                <div class="kpi"></div>
-                <div class="kpi"></div>
-                <div class="kpi"></div>
-            </div>
-            <div class="grafico">%De não prejudicar o peixe</div>
-        </div>
-    </div>
-
-    <div class="footer">
-        <div class="container">
-            <div class="foto"><img src="./imgs/f1.jpg"></div>
+   <div class="header">
+      <div class="container">
+         <h1 class="titulo">Fish<span style="font-weight: normal;">Web</span></h1>
+         <ul class="navbar">
+            <li class="agora">
+               <a href="index.html">Inicial</a>
+            </li>
+            <li>
+               <a href="login.html">Login</a>
+            </li>
+            <li>
+               <a href="cadastro.html">Cadastro</a>
+            </li>
+         </ul>
+      </div>
+   </div>
+   <div id="dash">
+      <div class="ola">
+         <div>Olá, .</div>
+      </div>
+      <div class="kpis" id="div_kpis">
+         <div class="kpi">
             <div>
-                <h4>Meus contatos:</h4><a href="https://github.com/Caio18Godinho/Fish-Web.git">GitHub </a>
-                <a href="">linkedin</a>
-            </div><br>
-        </div>
-    </div>
+               Maior pontuação:
+               <p id="maior_pont"></p>
+            </div>
+         </div>
+         <div class="kpi">
+            <div>
+               Menor pontuação:
+               <p id="menor_pont"></p>
+            </div>
+         </div>
+         <div class="kpi">
+            <div>
+               Ranking dos Usuarios:
+               <p id="ranking"></p>
+            </div>
+         </div>
+         <div class="kpi">
+            <div>
+               Partidas Jogadas:
+               <p id="partidasJogadas"></p>
+            </div>
+         </div>
+      </div>
+
+      <div class="container_dash" id="grafico_PorcentagemVidaPeixe">
+         <canvas id="PorcentagemVidaPeixe"></canvas>
+      </div>
+
+      <div class="container_dash" id="grafico_Progressao">
+         <canvas id="Progressao"></canvas>
+      </div>
+   </div>
+
+   <div class="footer">
+      <div class="container">
+         <div class="foto"><img src="./imgs/f1.jpg"></div>
+         <div>
+            <h4>Meus contatos:</h4><a href="https://github.com/Caio18Godinho/Fish-Web.git">GitHub </a>
+            <a href="">linkedin</a>
+         </div><br>
+      </div>
+   </div>
 </body>
 
 </html>
+<script>
+   function listar() {
+      var idusuario = sessionStorage.ID_USUARIO
+      fetch(`/dash/listar/${idusuario}`)
+         .then(resultado => resultado.json())
+         .then(resultado => {
+            console.log("Entrei listar")
+
+
+            console.log(resultado)
+            maior_pont.innerHTML = resultado[0].MelhorTentativa;
+            menor_pont.innerHTML = resultado[0].PiorTentativa;
+            partidasJogadas.innerHTML = resultado[0].partidas;
+
+         })
+
+         .catch(function (erro) {
+            console.log('Erro frontend', erro);
+         })
+   }
+   listar();
+</script>
