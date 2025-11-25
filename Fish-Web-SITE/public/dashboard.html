@@ -7,6 +7,7 @@
    <title>FishWeb | Dashboard</title>
    <link rel="stylesheet" href="./css/style.css">
    <script src="./js/sessao.js"></script>
+   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 
 <body>
@@ -28,7 +29,7 @@
    </div>
    <div id="dash">
       <div class="ola">
-         <div>Olá, .</div>
+         <div>Olá,.</div>
       </div>
       <div class="kpis" id="div_kpis">
          <div class="kpi">
@@ -56,7 +57,7 @@
             </div>
          </div>
       </div>
-
+   <div class="graficos">
       <div class="container_dash" id="grafico_PorcentagemVidaPeixe">
          <canvas id="PorcentagemVidaPeixe"></canvas>
       </div>
@@ -64,6 +65,7 @@
       <div class="container_dash" id="grafico_Progressao">
          <canvas id="Progressao"></canvas>
       </div>
+   </div>
    </div>
 
    <div class="footer">
@@ -79,14 +81,13 @@
 
 </html>
 <script>
+
    function listar() {
       var idusuario = sessionStorage.ID_USUARIO
       fetch(`/dash/listar/${idusuario}`)
          .then(resultado => resultado.json())
          .then(resultado => {
             console.log("Entrei listar")
-
-
             console.log(resultado)
             maior_pont.innerHTML = resultado[0].MelhorTentativa;
             menor_pont.innerHTML = resultado[0].PiorTentativa;
@@ -98,5 +99,82 @@
             console.log('Erro frontend', erro);
          })
    }
+   // function exibir() {
+   //    fetch("/dash/exibir")
+   //       .then(resultado => resultado.json())
+   //       .then(resultado => {
+   //          console.log("Entrei exibir");
+   //          console.log(resultado);
+   //          ranking.innerHTML = "";
+   //          for (var i = 0; i < resultado.length; i++) {
+   //             var item = resultado[i];
+   //             ranking.innerHTML += `${item.nome} - ${item.MelhoresTentativas}<br>`;
+   //          }
+   //       })
+   //       .catch(function (erro) {
+   //          console.log('Erro frontend', erro);
+   //       });
+   // }
+
+   function graf(){
+      var idusuario = sessionStorage.ID_USUARIO
+      fetch(`/dash/graf/${idusuario}`, { cache: "no-store" })
+         .then(response => response.json())
+         .then(function (response) {
+            console.log("pedro", response);
+
+            plotarGrafico(response);
+            
+         })
+         .catch(function (error) {
+            console.log(`Erro na obtenção dos dados p/ gráfico: ${error}`);
+         });
+      return false;
+   }
+
+   function plotarGrafico(listaDados) {
+      var lista_vida_peixe = []
+      var lista_questionario = []
+      for (var i = 0; i < listaDados.length; i++) {
+         var dado_atual = listaDados[i]
+         var vida_atual = dado_atual.vida_peixe
+         lista_vida_peixe.push(vida_atual)
+      }
+      for (var j = 0; j < listaDados.length; j++) {
+         var dado_atual = listaDados[j]
+         var quest_atual = dado_atual.idquestionario
+         lista_questionario.push(quest_atual)
+      }
+      console.log('iniciando plotagem do gráfico...');
+
+      let labels = lista_questionario
+
+      let dados = {
+         labels: labels,
+         datasets: [{
+            label: 'Progressão',
+            data: lista_vida_peixe,
+            fill: false,
+            borderColor: 'rgb(14, 46, 0)',
+            tension: 0.1
+      }]
+      };
+      
+      const config = {
+         type: 'line',
+         data: dados,
+      };
+
+
+      let myChart = new Chart(
+         document.getElementById(`Progressao`),
+         config
+      );
+      console.log('----------------------------------------------')
+      console.log('Estes dados foram recebidos pela funcao "obterDadosGrafico" e passados para "plotarGrafico":')
+
+   }
    listar();
+   // exibir();
+   graf();
 </script>
