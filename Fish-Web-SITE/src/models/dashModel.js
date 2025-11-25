@@ -11,18 +11,18 @@ function listar(idusuario) {
     console.log("Executando a instrução SQL: \n" + instrucao);
     return database.executar(instrucao);
 }
-// function exibir(){
-//     console.log('entrei no model exibir')
-//     var instrucao = `
-//         select Usuario.nome as nome, max(vida_peixe) as MelhoresTentativas
-//         from Usuario join questionario 
-//         on Usuario.idusuario = questionario.fkUsuario
-//         group by Usuario.nome order by max(vida_peixe) desc;
-//     `;
-//     console.log("Executando a instrução SQL: \n" + instrucao);
-//     return database.executar(instrucao);
-// }
-function graf(idusuario){
+ function exibir(){
+     console.log('entrei no model exibir')
+     var instrucao = `
+         select Usuario.nome as nome, max(vida_peixe) as MelhoresTentativas
+         from Usuario join questionario 
+         on Usuario.idusuario = questionario.fkUsuario
+         group by Usuario.nome order by max(vida_peixe) desc;
+     `;
+     console.log("Executando a instrução SQL: \n" + instrucao);
+     return database.executar(instrucao);
+ }
+function graf(idusuario) {
     console.log('entrei no model graf')
     var instrucao = `
        select vida_peixe, idquestionario 
@@ -34,6 +34,7 @@ function graf(idusuario){
 }
 module.exports = {
     listar,
-    // exibir,
-    graf
+    exibir,
+    graf,
+
 };
