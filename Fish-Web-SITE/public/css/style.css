@@ -3,9 +3,7 @@ body{
     flex-direction: column;
     margin: 0;
 }
-*{
-    box-sizing: border-box;
-}
+
 a{
     text-decoration: none;
 }
@@ -16,13 +14,15 @@ b{
 }
 .header{
     background-color: #0E2E00;
-    border-bottom: 3px solid white;
+    height: 100%;
+    margin-bottom: 0;
 }
 .header .container{
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 0 120px;
+    height: 30%;
 }
 .titulo{
     color: white;
@@ -335,7 +335,7 @@ b{
     font-size:medium;
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif ;
     margin-right: 50px;
-    margin-top: -20px;
+    margin-top: -27px;
 }
 .texto3 p{
     color: #0E2E00;
@@ -359,7 +359,7 @@ b{
     background-color: #0E2E00;
     height: 32px;
     width: 100px;
-    margin-top: 15px;
+    margin-top: 10px;
     font-size: large;
 }
 
@@ -670,12 +670,15 @@ b{
    display: flex;
    justify-content: center;
    align-items: center;
- background-image: url('../imgs/foto-2-1600x900.webp');
+    background-image: url('../imgs/foto-2-1600x900.webp');
+    height: 100%;
+    width: 100%;
+    
 }
 
 .ola {
    width: 300px;
-   margin: 10px;
+   margin-top: 10px;
    padding: 15px;
    justify-self: center;
    align-items: center;
@@ -685,6 +688,8 @@ b{
    background-color: #0E2E00;
    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
    font-size: 16px;
+   font-size: larger;
+   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 /* kpi */
@@ -712,6 +717,8 @@ b{
    color: #0E2E00;
    background-color: #ffffff;
    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+   font-size: large;
+   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .kpi div {
@@ -728,6 +735,8 @@ b{
     margin-bottom: 10px;
    margin-top: 30px;
    justify-content: space-evenly;
+   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+   font-size: larger;
 }
 .container_dash {
    display: flex;

@@ -28,9 +28,12 @@
     </div>
     <div id="pontuacaoEJogo" class="pontuacaoEJogo">
         <div class="jogo">
-            <button onclick="dashboard()" id="btnVisualizar">VISUALIZAR DASHBOARD</button>
+            <button onclick="dashboard()" id="btnVisualizar"
+                style="width: 200px; height: 100px; border-radius: 20px; border: solid; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;" >VISUALIZAR DASHBOARD
+            </button>
             <button id="btnIniciarQuiz" onclick="iniciarQuiz()"
-                style="width: 200px; height: 100px; border-radius: 20px; border: solid;">INICIAR QUIZ</button>
+                style="width: 200px; height: 100px; border-radius: 20px; border: solid; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">INICIAR QUIZ
+            </button>
 
             <div id="pontuacao" class="flex-colunar width-fit-content border-primary back" style="display: none;">
                 <div id="pontuacaoDuranteJogo" class="flex-colunar padding-8">
@@ -181,7 +184,9 @@
         document.getElementById('pontuacao').style.display = "flex"
         document.getElementById('jogo').style.display = "flex"
         document.getElementById('btnIniciarQuiz').style.display = "none"
-
+        document.getElementById('btnVisualizar').style.display = "none"
+        document.getElementById('btnTentarNovamente').style.display = "none"
+        document.getElementById('btndash').style.display = "none"
         document.getElementById('qtdQuestoes').innerHTML = quantidadeDeQuestoes
 
         preencherHTMLcomQuestaoAtual(0)
@@ -268,7 +273,7 @@
 
         //Recupere o valor da nova input pelo nome do id
         // Agora vá para o método fetch logo abaixo
-        
+
         var idusuario = sessionStorage.ID_USUARIO;
         var pctAcertos = Number(porcentagemFinalDeAcertos2);
 
@@ -354,7 +359,7 @@
         let textoParaMensagemFinal = null
         let classComCoresParaMensagemFinal = null
         var porcentagemFinalDeAcertos = (pontuacaoFinal / quantidadeDeQuestoes)
-         porcentagemFinalDeAcertos2 = ((pontuacaoFinal / quantidadeDeQuestoes) * 100)
+        porcentagemFinalDeAcertos2 = ((pontuacaoFinal / quantidadeDeQuestoes) * 100)
 
 
         if (porcentagemFinalDeAcertos <= 0.3) {
@@ -386,6 +391,15 @@
         document.getElementById('spanPontuacaoFinal').innerHTML = pontuacaoFinal
 
         document.getElementById('jogo').classList.add("text-new-gray")
+        document.getElementById('btndash').style.display = "flex"
+        document.getElementById('btnTentarNovamente').style.display = "flex"
+        document.getElementById('btnSubmeter').style.display = "none"
+        document.getElementById('infoQuestao').style.display = "none"
+        document.getElementById('perguntaDaQuestaoAtual').style.display = "none"
+        document.getElementById('infoAlternativas').style.display = "none"
+        document.getElementById('opcoes').style.display = "none"
+        document.getElementById('btnProx').style.display = "none"
+
 
         btnProx.disabled = true
         btnSubmeter.disabled = true
@@ -395,7 +409,7 @@
 
         cadastrarQuizz()
     }
-    function dashboard(){
-        window.location.href="dashboard.html"
+    function dashboard() {
+        window.location.href = "dashboard.html"
     }
 </script>

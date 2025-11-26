@@ -2,8 +2,8 @@
 /* The 4-point grid system: https://medium.com/@sainzkike/controlling-spacing-in-design-systems-multiple-spacing-9bf1afec87f */
 
 :root {
-    --primary-brand-color: #ED145B;
-    --secondary-brand-color: #0762C8;
+    --primary-brand-color: #0E2E00;
+    --secondary-brand-color: #0E2E00;
     --success: #198754;
     --success-dark: #095c36;
     --success-light: #9dd3ba;
@@ -21,6 +21,8 @@
 body {
     color: var(--new-black);
     background-color: var(--new-white);
+    margin: 0;
+
 }
 
 button {
@@ -88,11 +90,12 @@ button:hover {
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: column;
+    flex-direction: row;
     background-image: url('../imgs/bonito-turismo.webp');
+    
         
 }
 .back{
     background-color: white;
-
+    border-radius: 10px;
 }
